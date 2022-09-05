@@ -1,4 +1,6 @@
+#include "unit.h"
 #include "suffixWithUnit.h"
+#include <math.h>
 
 std::string suffixWithUnit(double unit) {
     double newUnit = unit;
