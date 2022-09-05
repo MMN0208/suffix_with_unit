@@ -12,7 +12,7 @@ std::string suffixWithUnit(double unit) {
     int count = 0;
     if(abs(newUnit) >= 1) {
         bool flag = true;
-        for(count = 0; count <= 8 && flag; count++) {
+        for(count = 0; count < 8 && flag; count++) {
             if(abs(newUnit) < 1000) flag = false;
             else newUnit /= 1000;
         }
@@ -20,7 +20,7 @@ std::string suffixWithUnit(double unit) {
     }
     else {
         bool flag = true;
-        for(count = 0; count >= -8 && flag; count--) {
+        for(count = 0; count > -8 && flag; count--) {
             if(abs(newUnit) >= 1 && abs(newUnit) < 1000) flag = false;
             else newUnit *= 1000;
         }
