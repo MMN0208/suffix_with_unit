@@ -11,7 +11,7 @@ To run the program, input the following into your Terminal at suffix_with_unit/s
 
 $./suffixWithUnit x 
 
-with x being a number from 1 to 10, corresponding to the number of tests you want to conduct.
+with x being a number from 1 to ..., corresponding to the number of tests you want to conduct.
 
 
 The tests are stored in suffix_with_unit/suffixWithUnit/test/test.txt
