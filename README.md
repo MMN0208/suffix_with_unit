@@ -10,6 +10,6 @@ To run the program, enter the following to your Terminal at /suffixWithUnit
 
 ./suffixWithUnit x 
 
-with x being a number from 1 to 9
+with x being a number from 1 to 10
 
 If possible, please help me add more tests in the /test/ folder with name ranging from test3.txt to test9.txt 
