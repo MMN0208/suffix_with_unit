@@ -27,7 +27,7 @@ std::string suffixWithUnit(double unit) {
         }
         if(!flag) count++; // Because count decreases by 1 before the for loop is terminated if flag is false
     }
-    return std::to_string(newUnit) + " " + si[count + leftOffset];
+    return std::to_string(newUnit) + " " + si[count + leftOffset]; // si starts at the smallest unit so by adding the leftOffset to count, we will get the desired unit
 }
 
 #endif
