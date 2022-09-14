@@ -10,8 +10,7 @@ int main(int argc, char **argv) {
     if(myFile.is_open()) {
         double unit = 0.0; // a variable to retrieve values from myFile
         while(myFile >> unit) {
-            resultFile << suffixWithUnit(unit);
-            resultFile << endl;
+            resultFile << unit << " = " << suffixWithUnit(unit) << endl;
         }
     }
     else return 1;
