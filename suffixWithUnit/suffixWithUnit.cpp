@@ -4,24 +4,22 @@
 
 #define NUM_OF_LEFT_UNITS      8  // Number of units before "" in si[]
 #define NUM_OF_RIGHT_UNITS     8  // Number of units after "" in si[]
+#define START_INDEX            8  // Starts at "" prefix
 
 std::string suffixWithUnit(double unit) {
     double newUnit = unit;
-    int count = 0;
-    bool flag = true; // one of the conditions of the for loop
+    int siIndex = START_INDEX;
     if(abs(newUnit) >= 1) {
-        for(count = 0; count < NUM_OF_RIGHT_UNITS && flag; count++) {
-            if(abs(newUnit) < 1000) flag = false;
-            else newUnit /= 1000;
+        while(abs(newUnit) >= 1000 && siIndex < START_INDEX + NUM_OF_RIGHT_UNITS) {
+            newUnit /= 1000;
+            siIndex++; // move to the next positive power prefix
         }
-        if(!flag) count--; // Because count increases by 1 before the for loop is terminated if flag is false
     }
     else {
-        for(count = 0; count > -NUM_OF_LEFT_UNITS && flag; count--) {
-            if(abs(newUnit) >= 1 && abs(newUnit) < 1000) flag = false;
-            else newUnit *= 1000;
+        while(abs(newUnit) < 1 && siIndex > START_INDEX - NUM_OF_LEFT_UNITS) { 
+            newUnit *= 1000;
+            siIndex--; // move to the next negative power prefix
         }
-        if(!flag) count++; // Because count decreases by 1 before the for loop is terminated if flag is false
     }
-    return std::to_string(newUnit) + " " + si[count + NUM_OF_LEFT_UNITS]; // si starts at the smallest unit so by adding the leftOffset to count, we will get the desired unit
+    return std::to_string(newUnit) + " " + si[siIndex];
 }
